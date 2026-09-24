@@ -9,19 +9,31 @@
 }
 
 .counter-card {
+  user-select: none;
   display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: center;
   padding: 5px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 300px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-.counter-card .counter-value {
+.counter-card .counter-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter-card .counter-info .counter-value {
   font-size: 8rem;
   line-height: 1;
+}
+.counter-card .counter-info .counter-state {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 .counter-card .counter-controls {
   display: flex;
