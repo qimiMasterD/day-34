@@ -98,6 +98,17 @@ $danger-bg: #fee2e2;
             border-radius: 10px;
         }
 
+        .nothing {
+            display: block;
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            font-size: 1rem;
+            font-style: italic;
+            user-select: none;
+            margin: auto 0;
+        }
+
         .todo-item {
             user-select: none;
             background-color: #f3f4f6;

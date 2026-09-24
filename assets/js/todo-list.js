@@ -62,6 +62,35 @@ function TodoListApp() {
     const totalCount = tasks.length;
     const completedCount = tasks.filter((task) => task.completed).length;
     const remainingCount = totalCount - completedCount;
+    const displayElements = tasks.map((task) => {
+        return (
+            <div
+                key={task.id}
+                className={`todo-item ${task.completed ? "completed" : "incompleted"}`}
+            >
+                <input
+                    type="checkbox"
+                    className="todo-check"
+                    id={`task-${task.id}`}
+                    checked={task.completed}
+                    onChange={(e) => {
+                        statusChange(task.id, e.target.checked);
+                    }}
+                />
+                <label htmlFor={`task-${task.id}`}>
+                    <span className="todo-text">{task.text}</span>
+                </label>
+                <button
+                    className="todo-btn-delete"
+                    onClick={(e) => {
+                        delTask(task.id);
+                    }}
+                >
+                    Delete
+                </button>
+            </div>
+        );
+    });
 
     return (
         <>
@@ -70,37 +99,13 @@ function TodoListApp() {
                 <TodoForm onAddTask={addTask} />
 
                 <div className="todo-list">
-                    {tasks.map((task) => {
-                        return (
-                            <div
-                                key={task.id}
-                                className={`todo-item ${task.completed ? "completed" : "incompleted"}`}
-                            >
-                                <input
-                                    type="checkbox"
-                                    className="todo-check"
-                                    id={`task-${task.id}`}
-                                    checked={task.completed}
-                                    onChange={(e) => {
-                                        statusChange(task.id, e.target.checked);
-                                    }}
-                                />
-                                <label htmlFor={`task-${task.id}`}>
-                                    <span className="todo-text">
-                                        {task.text}
-                                    </span>
-                                </label>
-                                <button
-                                    className="todo-btn-delete"
-                                    onClick={(e) => {
-                                        delTask(task.id);
-                                    }}
-                                >
-                                    Delete
-                                </button>
-                            </div>
-                        );
-                    })}
+                    {tasks.length === 0 ? (
+                        <span className="nothing">
+                            Nothing here, add your first task...
+                        </span>
+                    ) : (
+                        displayElements
+                    )}
                 </div>
 
                 <div className="todo-stats">

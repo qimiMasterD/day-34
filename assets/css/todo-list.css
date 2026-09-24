@@ -77,6 +77,16 @@
   background-color: #e5e7eb;
   border-radius: 10px;
 }
+.todo-card .todo-list .nothing {
+  display: block;
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 1rem;
+  font-style: italic;
+  user-select: none;
+  margin: auto 0;
+}
 .todo-card .todo-list .todo-item {
   user-select: none;
   background-color: #f3f4f6;
